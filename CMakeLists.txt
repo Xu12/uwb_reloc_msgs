@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   geometry_msgs
   std_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -49,6 +50,7 @@ find_package(catkin REQUIRED COMPONENTS
    FILES
    uwbTalkData.msg
    uwbRlEst.msg
+   uwbRelInfo.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -103,10 +105,8 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
-  DEPENDS system_lib
+  CATKIN_DEPENDS geometry_msgs message_runtime std_msgs
 )
-
 ###########
 ## Build ##
 ###########
@@ -162,11 +162,11 @@ include_directories(
 # )
 
 ## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h"
+  # PATTERN ".svn" EXCLUDE
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES
