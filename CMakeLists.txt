@@ -50,7 +50,8 @@ find_package(catkin REQUIRED COMPONENTS
    FILES
    uwbTalkData.msg
    uwbRlEst.msg
-   uwbRelInfo.msg
+   RelativeInfoStamped.msg
+   TwistWithDistanceStamped.msg
  )
 
 ## Generate services in the 'srv' folder
